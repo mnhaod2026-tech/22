@@ -19,7 +19,7 @@ function triggerSync() {
     try {
         if(window.syncDataToFirebase) {
             setTimeout(() => {
-                if(navigator.onLine) window.syncDataToFirebase();
+                if(navigator.onLine) window.syncDataToFirebase(false);
             }, 100);
         }
     } catch(e) { console.error('Offline mode saved locally'); }

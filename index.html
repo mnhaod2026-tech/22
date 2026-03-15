@@ -127,6 +127,7 @@
                 <input type="number" id="cust-phone" placeholder="7..." style="width: 100%;">
             </div>
             <input type="text" id="cust-address" placeholder="العنوان">
+            <input type="text" id="cust-notes" placeholder="ملاحظات الزبون">
             <input type="number" id="cust-days" placeholder="عدد الأيام المسموح بها للسداد (مثال: 30)">
             <div class="modal-actions">
                 <button class="btn-primary" onclick="saveCustomer()">حفظ</button>
@@ -142,6 +143,7 @@
             </div>
             <h3 id="detail-cust-name">اسم الزبون</h3>
             <div class="balance-card">الباقي الكلي: <span id="detail-cust-balance">0</span> د.ع</div>
+            <p id="detail-cust-notes" style="font-size: 0.9rem; color: #555; margin-bottom: 15px; text-align: center; font-weight: bold;"></p>
             
             <div class="action-buttons">
                 <button class="btn-primary" onclick="openDebtModal()">دين جديد <i class="fas fa-plus-circle"></i></button>
@@ -352,7 +354,7 @@
             if(navigator.onLine) {
                 window.syncDataFromFirebase();
             } else {
-                window.syncDataToFirebase();
+                if(window.syncDataToFirebase) window.syncDataToFirebase();
             }
         }
 
